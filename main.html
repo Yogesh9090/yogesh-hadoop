@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadoop Installation</title>
+    <style>
+        *{
+            background:rgb(248, 246, 112);
+        }
+    </style>
+</head>
+<body>
+    <h1>Hadoop Insatallation by Yogesha Murumkar</h1>
+    <h3>Step by Step</h3>
+    <ol>
+        <li>  su hduser</li>
+        <li> sudo mkdir analyzelogs </li>
+        <li>  ls</li>
+        <li>sudo chmod -R 777 analyzelogs/  </li>
+        <li> cd </li>
+        <li>  ls</li>
+        <li>  cd ..</li>
+        <li>pwd  </li>
+        <li> ls </li>
+        <li> cd </li>
+        <li> pwd </li>
+        <li>sudo chown -R hduser analyzelogs/  </li>
+        <li> cd </li>
+        <li> ls </li>
+        <li> cd analyzelogs/ </li>
+        <li>  ls</li>
+        <li> cd .. </li>
+        <li> sudo cp /home/satayam/Desktop/ass2/* -/analyzelogs/ </li>
+        <li>  cd analyzelogs/</li>
+        <li> ls </li>
+        <li> pwd </li>
+        <li> ls </li>
+        <li> ls -ltr </li>
+        <li> ls -al </li>
+        <li> sudo chmod +r *-* </li>
+        <li> pwd </li>
+        <li> export CLASSPATH="$HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.9.0.jar:$HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-client-common-2.9.0.jar:$HADOOP_HOME/share/hadoop/common/hadoop-common-2.9.0.jar:~/analyzelogs/SalesCountry/*:$HADOOP_HOME/lib/*"
+            javac -d . SalesMapper.java SalesCountryReducer.java SalesCountryDriver.java </li>
+        <li> ls </li>
+        <li> cd SalesCountry/ </li>
+        <li> ls </li>
+        <li> cd .. </li>
+        <li> sudo gedit Manifest.class </li>
+        <li>(pase code in file -> Main-Class: SalesCountry.SalesCountryDriver)  </li>
+        <li> jar -cfn analyzelogs.jar Manifest.txt SalesCountry/*.class </li>
+        <li> ls </li>
+        <li> cd </li>
+        <li> start-dfs.sh </li>
+        <li>  start-yarn.sh</li>
+        <li>  jps</li>
+        <li> cd analyzelogs </li>
+        <li> sudo mkdir -/input2000 </li>
+        <li> ls </li>
+        <li> pwd </li>
+        <li> sudo cp  log_file.csv -/input2000 </li>
+        <li> $HADOOP_HOME/bin/hdfs dfs -put -/input2000/ </li>
+        <li> $HADOOP_HOME/bin/hadoop jar analyzelogs.jar /input2000 /output2000 </li>
+        <li>  $HADOOP_HOME/bin/hdfs dfs -cat /output2000/part-00000</li>
+    </ol>
+    
+</body>
+</html>
